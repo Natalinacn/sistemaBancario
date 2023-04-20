@@ -3,18 +3,16 @@ package org.natalin.entidades;
 public class Sucursal {
 
     private Integer numeroSucursal;
-    private String localidad;
+    private String direccion;
     private String telefono;
-    private String pais;
 
     public Sucursal() {
     }
 
-    public Sucursal(Integer numeroSucursal, String localidad, String telefono, String pais) {
+    public Sucursal(Integer numeroSucursal, String direccion, String telefono) {
         this.numeroSucursal = numeroSucursal;
-        this.localidad = localidad;
+        this.direccion = direccion;
         this.telefono = telefono;
-        this.pais = pais;
     }
 
     public Integer getNumeroSucursal() {
@@ -25,12 +23,12 @@ public class Sucursal {
         this.numeroSucursal = numeroSucursal;
     }
 
-    public String getLocalidad() {
-        return localidad;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getTelefono() {
@@ -41,21 +39,12 @@ public class Sucursal {
         this.telefono = telefono;
     }
 
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
     @Override
     public String toString() {
         return "Sucursal{" +
                 "numeroSucursal=" + numeroSucursal +
-                ", localidad='" + localidad + '\'' +
+                ", direccion='" + direccion + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", pais='" + pais + '\'' +
                 '}';
     }
 }

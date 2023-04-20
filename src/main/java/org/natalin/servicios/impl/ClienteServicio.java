@@ -1,4 +1,5 @@
 package org.natalin.servicios.impl;
+
 import org.natalin.entidades.Cliente;
 import org.natalin.entidades.Cuenta;
 
@@ -8,9 +9,9 @@ public class ClienteServicio {
 
     Scanner read = new Scanner(System.in);
 
-    public Cliente crearCliente(){
+    public Cliente crearCliente() {
 
-    Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente();
 
         System.out.println("Ingrese su nombre");
         cliente.setNombre(read.nextLine());
@@ -21,8 +22,9 @@ public class ClienteServicio {
         System.out.println("Ingrese su número de documento");
         cliente.setDocumento(read.nextLine());
 
-    return cliente;
+        return cliente;
 
     }
+
 
 }
