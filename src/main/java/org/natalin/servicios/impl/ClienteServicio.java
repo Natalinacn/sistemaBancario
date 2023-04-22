@@ -5,9 +5,13 @@ import org.natalin.entidades.Cuenta;
 
 import java.util.Scanner;
 
+
+
 public class ClienteServicio {
 
+
     Scanner read = new Scanner(System.in);
+    SucursalServicio sucursalServicio = new SucursalServicio();
 
     public Cliente crearCliente() {
 
@@ -21,6 +25,24 @@ public class ClienteServicio {
 
         System.out.println("Ingrese su número de documento");
         cliente.setDocumento(read.nextLine());
+
+        sucursalServicio.mostrarSucursalesConClave();
+
+        System.out.println("Qué sucursal desea elegir?");
+        String opcion = read.nextLine();
+
+/*        if(opcion)
+        switch (opcion){
+
+            case"":
+
+                break;
+
+
+
+
+        }*/
+
 
         return cliente;
 

@@ -4,9 +4,13 @@ import org.natalin.entidades.Cuenta;
 
 public interface ICuentaServicio {
 
-Double saldoDisponible(Cuenta cuenta);
-void depositar(Double monto, Cuenta cuenta);
+    Cuenta crearCuenta();
+    Double saldoDisponible(Cuenta cuenta);
+
+    void depositar(Double monto, Cuenta cuenta);
+
     public void retirar(Double monto, Cuenta cuenta);
-void trasferir(Cuenta cuentaOrigen, Cuenta cuentaDestino, Double monto);
+
+    void trasferir(Cuenta cuentaOrigen, Cuenta cuentaDestino, Double monto);
 
 }

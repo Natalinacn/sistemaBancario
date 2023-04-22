@@ -12,18 +12,29 @@ public class Main {
 
         CuentaServicio cuentaServicio = new CuentaServicio();
 
-        sucursalServicio.crearSucursal();
-        sucursalServicio.mostrarSucursales();
+        sucursalServicio.crearSucusal();
+        sucursalServicio.agregarSucursalesAlMap();
+        sucursalServicio.mostrarSucursalesConClave();
 
-/*
+        System.out.println("Creando primer cuenta");
         Cuenta cuenta1 = cuentaServicio.crearCuenta();
+        System.out.println("Creando segunda cuenta");
         Cuenta cuenta2 = cuentaServicio.crearCuenta();
 
 
         cuentaServicio.depositar(1000.0, cuenta1);
-        cuentaServicio.trasferir(cuenta1, cuenta2, 500.0);
-*/
+        cuentaServicio.saldoDisponible(cuenta1);
+        cuentaServicio.depositar(20000.0, cuenta2);
+        cuentaServicio.saldoDisponible(cuenta2);
 
+
+        cuentaServicio.trasferir(cuenta1, cuenta2, 500.0);
+        cuentaServicio.saldoDisponible(cuenta1);
+        cuentaServicio.saldoDisponible(cuenta2);
+
+        cuentaServicio.retirar(2500.0, cuenta2);
+        cuentaServicio.saldoDisponible(cuenta1);
+        cuentaServicio.saldoDisponible(cuenta2);
 
 
 

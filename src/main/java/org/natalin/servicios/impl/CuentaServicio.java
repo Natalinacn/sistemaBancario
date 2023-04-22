@@ -40,7 +40,7 @@ public class CuentaServicio implements ICuentaServicio {
 
     @Override
     public Double saldoDisponible(Cuenta cuenta) {
-        System.out.println("El saldo de la cuenta es: " + cuenta.getSaldo());
+        System.out.println("El saldo de la cuenta " + cuenta + " es: " + cuenta.getSaldo());
         return cuenta.getSaldo();
 
     }
@@ -57,7 +57,7 @@ public class CuentaServicio implements ICuentaServicio {
     public void retirar(Double monto, Cuenta cuenta) {
         if (cuenta.getSaldo() >= monto) {
             cuenta.setSaldo(cuenta.getSaldo() - monto);
-            System.out.println("Usted retiró " + monto + " con éxito");
+            System.out.println("Usted retiró de la cuenta " + cuenta + " la cantidad de " + monto + " pesos con éxito");
         } else {
             System.out.println("Saldo insuficiente");
         }
