@@ -1,10 +1,14 @@
 package org.natalin.entidades;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Sucursal {
 
     private Integer numeroSucursal;
     private String direccion;
     private String telefono;
+    //private Map<Integer, Sucursal> mapaSucursales;
 
     public Sucursal() {
     }
@@ -13,6 +17,7 @@ public class Sucursal {
         this.numeroSucursal = numeroSucursal;
         this.direccion = direccion;
         this.telefono = telefono;
+
     }
 
     public Integer getNumeroSucursal() {
@@ -38,6 +43,7 @@ public class Sucursal {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
 
     @Override
     public String toString() {

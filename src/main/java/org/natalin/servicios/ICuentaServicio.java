@@ -4,7 +4,7 @@ import org.natalin.entidades.Cuenta;
 
 public interface ICuentaServicio {
 
-    Cuenta crearCuenta();
+    //Cuenta crearCuenta();
     Double saldoDisponible(Cuenta cuenta);
 
     void depositar(Double monto, Cuenta cuenta);

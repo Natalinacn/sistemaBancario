@@ -1,36 +1,29 @@
 package org.natalin.servicios.impl;
 
 import org.natalin.entidades.Cuenta;
+import org.natalin.entidades.Sucursal;
 import org.natalin.servicios.ICuentaServicio;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CuentaServicio implements ICuentaServicio {
 
     Scanner read = new Scanner(System.in);
     ClienteServicio clienteServicio = new ClienteServicio();
+    SucursalServicio sucursalServicio = new SucursalServicio();
 
     public Cuenta crearCuenta(){
-
         Cuenta cuenta = new Cuenta();
+
         cuenta.setSaldo(0.00);
         cuenta.setNumeroDeCuenta((int) (Math.random()*1000+1));
         cuenta.setCliente(clienteServicio.crearCliente());
 
-        System.out.println("Si desea crear una cuenta corriente marque 1");
-        System.out.println("Si desea crear una caja de ahorro marque 2");
-        String opcion = read.nextLine();
+        elegirTipoDeCuenta(cuenta);
 
-        switch (opcion){
-
-            case "1":
-                System.out.println("Usted ha creado una CUENTA CORRIENTE");
-                cuenta.setEsCuentaCorriente(true);
-                break;
-            case "2":
-                System.out.println("Usted a creado una CAJA DE AHORRO");
-                cuenta.setEsCajaDeAhorros(true);
-        }
+        //sucursalServicio.elegirSucursal();
 
         System.out.println(cuenta);
 
@@ -71,6 +64,26 @@ public class CuentaServicio implements ICuentaServicio {
             System.out.println("Usted trasfirió desde la cuenta " + cuentaOrigen + "el monto " + monto + " pesos con éxito" + " a la cuenta " + cuentaDestino);
         } else {
             System.out.println("Saldo insuficiente");
+        }
+
+    }
+
+    public void elegirTipoDeCuenta(Cuenta cuenta){
+
+        System.out.println("Si desea crear una cuenta corriente marque 1");
+        System.out.println("Si desea crear una caja de ahorro marque 2");
+        String opcion = read.nextLine();
+
+        switch (opcion){
+
+            case "1":
+                System.out.println("Usted ha creado una CUENTA CORRIENTE");
+                cuenta.setEsCuentaCorriente(true);
+                break;
+            case "2":
+                System.out.println("Usted a creado una CAJA DE AHORRO");
+                cuenta.setEsCajaDeAhorros(true);
+
         }
 
     }

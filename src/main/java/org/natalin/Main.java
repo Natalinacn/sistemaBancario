@@ -1,20 +1,23 @@
 package org.natalin;
 
 import org.natalin.entidades.Cuenta;
+import org.natalin.entidades.Sucursal;
 import org.natalin.servicios.impl.CuentaServicio;
 import org.natalin.servicios.impl.SucursalServicio;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
 
-        SucursalServicio sucursalServicio = new SucursalServicio();
-
-
+        //SucursalServicio sucursalServicio = new SucursalServicio();
         CuentaServicio cuentaServicio = new CuentaServicio();
 
-        sucursalServicio.crearSucusal();
-        sucursalServicio.agregarSucursalesAlMap();
-        sucursalServicio.mostrarSucursalesConClave();
+
+        //sucursalServicio.crearSucursal();
+
+
 
         System.out.println("Creando primer cuenta");
         Cuenta cuenta1 = cuentaServicio.crearCuenta();
@@ -35,7 +38,6 @@ public class Main {
         cuentaServicio.retirar(2500.0, cuenta2);
         cuentaServicio.saldoDisponible(cuenta1);
         cuentaServicio.saldoDisponible(cuenta2);
-
 
 
     }

@@ -47,6 +47,6 @@ package org.natalin.entidades;
         public String toString() {
             return "nombre='" + nombre + '\'' +
                     ", apellido='" + apellido + '\'' +
-                    ", documento='" + documento;
+                    ", documento='" + documento + "'";
         }
     }
