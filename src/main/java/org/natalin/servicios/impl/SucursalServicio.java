@@ -10,12 +10,12 @@ public class SucursalServicio {
     Scanner read = new Scanner(System.in).useDelimiter("\n");
     Sucursal sucursal = new Sucursal();
     List<Sucursal> sucursales = new ArrayList<>();
-    private Map<Integer, Sucursal> mapaSucursales = new HashMap<>();
+    //private Map<Integer, Sucursal> mapaSucursales = new HashMap<>();
 
 
     Cuenta objcuenta = new Cuenta();
 
-    public void crearSucursal() {
+    public void crearSucursal(HashMap<Integer, Sucursal> mapaSucursales) {
 
         System.out.println("Desea crear una nueva sucursal? S/N");
         String opcion = read.nextLine();
@@ -34,13 +34,13 @@ public class SucursalServicio {
             opcion = read.nextLine();
         }
 
-        agregarSucursalesAlMap();
+        agregarSucursalesAlMap(mapaSucursales);
 
     }
 
 
     //CREAR SUCURSAL
-   public void agregarSucursalesAlMap() {
+   public void agregarSucursalesAlMap(HashMap<Integer, Sucursal> mapaSucursales) {
 
         Integer nuevaClave = mapaSucursales.size() + 1;
 
@@ -57,7 +57,7 @@ public class SucursalServicio {
     //recorriendo el hashmap que ya tiene las claves y después usar esas claves para que el usuario use de
     //opción en el switch
 
-    public void mostrarSucursalesConClave() {
+    public void mostrarSucursalesConClave(HashMap<Integer, Sucursal> mapaSucursales) {
 
         System.out.println("Listado de sucursales");
 
@@ -69,26 +69,36 @@ public class SucursalServicio {
     }
 
 
-    public void elegirSucursal() {
+    public void elegirSucursal(HashMap<Integer, Sucursal> mapaSucursales) {
 
         System.out.println("Qué sucursal desea elegir? Ingrese el número correspondiente");
-        mostrarSucursalesConClave();
+        mostrarSucursalesConClave(mapaSucursales);
         Integer opcion = read.nextInt();
         read.nextLine();
 
+        Sucursal sucursalSeleccionada = mapaSucursales.get(opcion);
+        if (sucursalSeleccionada != null) {
+            objcuenta.setSucursal(sucursalSeleccionada);
+            System.out.println("Usted ha seleccionado la sucursal " + objcuenta.getSucursal() + " con éxito.");
+        } else {
+            System.out.println("La opción ingresada no es válida.");
+        }
+
+
+/*
         switch (opcion) {
 
             case 1:
                 System.out.println("Usted eligió la sucursal 1");
-                objcuenta.setSucursal(sucursales.get(0));
+                objcuenta.setSucursal(mapaSucursales.get(0));
                 break;
             case 2:
                 System.out.println("Usted eligió la sucursal 2");
-                objcuenta.setSucursal(sucursales.get(1));
+                objcuenta.setSucursal(mapaSucursales.get(1));
                 break;
             case 3:
                 System.out.println("Usted eligió la sucursal 3");
-                objcuenta.setSucursal(sucursales.get(2));
+                objcuenta.setSucursal(mapaSucursales.get(2));
                 break;
 
             default:
@@ -96,6 +106,7 @@ public class SucursalServicio {
 
         }
 
+*/
 
     }
 

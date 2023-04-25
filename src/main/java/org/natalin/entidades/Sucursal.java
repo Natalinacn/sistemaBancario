@@ -8,7 +8,6 @@ public class Sucursal {
     private Integer numeroSucursal;
     private String direccion;
     private String telefono;
-    //private Map<Integer, Sucursal> mapaSucursales;
 
     public Sucursal() {
     }
@@ -47,10 +46,8 @@ public class Sucursal {
 
     @Override
     public String toString() {
-        return "Sucursal{" +
-                "numeroSucursal=" + numeroSucursal +
-                ", direccion='" + direccion + '\'' +
-                ", telefono='" + telefono + '\'' +
-                '}';
+        return " número " + numeroSucursal +
+                ", ubicada en " + direccion +
+                ", telefono: " + telefono;
     }
 }

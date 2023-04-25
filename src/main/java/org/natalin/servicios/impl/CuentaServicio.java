@@ -1,5 +1,6 @@
 package org.natalin.servicios.impl;
 
+import org.natalin.entidades.Cliente;
 import org.natalin.entidades.Cuenta;
 import org.natalin.entidades.Sucursal;
 import org.natalin.servicios.ICuentaServicio;
@@ -12,9 +13,11 @@ public class CuentaServicio implements ICuentaServicio {
 
     Scanner read = new Scanner(System.in);
     ClienteServicio clienteServicio = new ClienteServicio();
-    SucursalServicio sucursalServicio = new SucursalServicio();
 
-    public Cuenta crearCuenta(){
+
+    private SucursalServicio sucursalServicio = new SucursalServicio();
+
+    public Cuenta crearCuenta(HashMap<Integer, Sucursal> mapaSucursales){
         Cuenta cuenta = new Cuenta();
 
         cuenta.setSaldo(0.00);
@@ -23,9 +26,9 @@ public class CuentaServicio implements ICuentaServicio {
 
         elegirTipoDeCuenta(cuenta);
 
-        //sucursalServicio.elegirSucursal();
+        sucursalServicio.elegirSucursal(mapaSucursales);
 
-        System.out.println(cuenta);
+        System.out.println(mostrarCuenta(cuenta));
 
         return cuenta;
     }
@@ -33,7 +36,7 @@ public class CuentaServicio implements ICuentaServicio {
 
     @Override
     public Double saldoDisponible(Cuenta cuenta) {
-        System.out.println("El saldo de la cuenta " + cuenta + " es: " + cuenta.getSaldo());
+        System.out.println("El saldo de la cuenta " + cuenta.getNumeroDeCuenta() + " del cliente " + cuenta.getCliente() + " es: " + cuenta.getSaldo());
         return cuenta.getSaldo();
 
     }
@@ -50,7 +53,7 @@ public class CuentaServicio implements ICuentaServicio {
     public void retirar(Double monto, Cuenta cuenta) {
         if (cuenta.getSaldo() >= monto) {
             cuenta.setSaldo(cuenta.getSaldo() - monto);
-            System.out.println("Usted retiró de la cuenta " + cuenta + " la cantidad de " + monto + " pesos con éxito");
+            System.out.println("Usted retiró de la cuenta " + cuenta.getNumeroDeCuenta() + " la cantidad de " + monto + " pesos con éxito");
         } else {
             System.out.println("Saldo insuficiente");
         }
@@ -61,7 +64,7 @@ public class CuentaServicio implements ICuentaServicio {
         if (monto <= cuentaOrigen.getSaldo()) {
             cuentaOrigen.setSaldo(cuentaOrigen.getSaldo() - monto);
             cuentaDestino.setSaldo(cuentaDestino.getSaldo() + monto);
-            System.out.println("Usted trasfirió desde la cuenta " + cuentaOrigen + "el monto " + monto + " pesos con éxito" + " a la cuenta " + cuentaDestino);
+            System.out.println("Usted trasfirió desde la cuenta " + cuentaOrigen.getNumeroDeCuenta() + " el monto " + monto + " pesos con éxito" + " a la cuenta " + cuentaDestino.getNumeroDeCuenta());
         } else {
             System.out.println("Saldo insuficiente");
         }
@@ -85,6 +88,13 @@ public class CuentaServicio implements ICuentaServicio {
                 cuenta.setEsCajaDeAhorros(true);
 
         }
+    }
+
+     public String mostrarCuenta(Cuenta cuenta){
+
+        return "Bienvenido al banco! Sus datos son " + cuenta.getCliente() +
+                "\nSu nueva cuenta es la cuenta número " + cuenta.getNumeroDeCuenta() +
+                "\ny posee saldo de " + cuenta.getSaldo() + " pesos";
 
     }
 
