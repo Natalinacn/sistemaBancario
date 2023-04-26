@@ -28,7 +28,7 @@ public class CuentaServicio implements ICuentaServicio {
 
         sucursalServicio.elegirSucursal(mapaSucursales);
 
-        System.out.println(mostrarCuenta(cuenta));
+        System.out.println(mostrarDatos(cuenta));
 
         return cuenta;
     }
@@ -64,7 +64,8 @@ public class CuentaServicio implements ICuentaServicio {
         if (monto <= cuentaOrigen.getSaldo()) {
             cuentaOrigen.setSaldo(cuentaOrigen.getSaldo() - monto);
             cuentaDestino.setSaldo(cuentaDestino.getSaldo() + monto);
-            System.out.println("Usted trasfirió desde la cuenta " + cuentaOrigen.getNumeroDeCuenta() + " el monto " + monto + " pesos con éxito" + " a la cuenta " + cuentaDestino.getNumeroDeCuenta());
+
+            mostrarTransferencia(cuentaOrigen, cuentaDestino);
         } else {
             System.out.println("Saldo insuficiente");
         }
@@ -90,7 +91,7 @@ public class CuentaServicio implements ICuentaServicio {
         }
     }
 
-     public String mostrarCuenta(Cuenta cuenta){
+     public String mostrarDatos(Cuenta cuenta){
 
         return "Bienvenido al banco! Sus datos son " + cuenta.getCliente() +
                 "\nSu nueva cuenta es la cuenta número " + cuenta.getNumeroDeCuenta() +
@@ -98,6 +99,14 @@ public class CuentaServicio implements ICuentaServicio {
 
     }
 
+    public String mostrarTransferencia(Cuenta cuentaOrigen, Cuenta cuentaDestino){
+
+        return "Detalle de su transferencia: " +
+                "\n Usted realizó una trasferencia desde su cuenta número " + cuentaOrigen.getNumeroDeCuenta() +
+                "\na la cuenta cuenta número " + cuentaDestino.getNumeroDeCuenta() +
+                "\nEl nuevo saldo en su cuenta es de " + cuentaOrigen.getSaldo() + " pesos";
+
+    }
 
 }
 

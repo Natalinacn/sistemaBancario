@@ -85,29 +85,6 @@ public class SucursalServicio {
         }
 
 
-/*
-        switch (opcion) {
-
-            case 1:
-                System.out.println("Usted eligió la sucursal 1");
-                objcuenta.setSucursal(mapaSucursales.get(0));
-                break;
-            case 2:
-                System.out.println("Usted eligió la sucursal 2");
-                objcuenta.setSucursal(mapaSucursales.get(1));
-                break;
-            case 3:
-                System.out.println("Usted eligió la sucursal 3");
-                objcuenta.setSucursal(mapaSucursales.get(2));
-                break;
-
-            default:
-                System.out.println("Usted ingresó una sucursal inexistente");
-
-        }
-
-*/
-
     }
 
 
